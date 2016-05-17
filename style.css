@@ -11,3 +11,14 @@ General comments/License Statement if any.
 .
 */
 
+/* este es el estilo del header de la pagina */
+header nav .brand-logo {
+    max-height: 100% !important;
+    height: 100% !important;
+}
+/* se sobrescribe el estilo del logo del header*/
+header .responsive-img{
+	max-height: 100%;
+    height: 100%;
+    width: auto;
+}
