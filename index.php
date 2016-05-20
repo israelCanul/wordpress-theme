@@ -43,38 +43,52 @@
 <?php endif; // Fin de las comprobaciones condicionales ?>
 
 <?php //El loop básicamente comprueba si hay posts para mostrar, luego mientras haya posts cargará cada uno de ellos usando el esquema que se ve a continuación
-if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+if ( have_posts() ) : 
+
+	while ( have_posts() ) : the_post(); ?>
+    <div class="row">
+    	<div class="col s12">
+
+			<article <?php post_class('clearfix card-panel  hoverable'); //Carga las clases específicas del post y agrega la clase clearfix ?>>
+	           	<div class="row">
+	           		<div class="col s12 m4 l3">
+						<?php //Verifica si el post tiene una imágen destacada
+						if ( has_post_thumbnail() ) {
+				 
+							//Si tiene imágen destacada entonces carga la imagen en tamaño thumbnail (miniatura), y le añade la clase alignleft
+							the_post_thumbnail('thumbnail', array(
+								'class' => 'alignleft'
+							));
+						}?>           			
+	           		</div>
+	           		<div class="col s12 m8 l9 flow-text">
+	           			<h2><?php the_title(); //Muestra el título del post ?></h2>
+	           		</div>	              
+	            </div>				
+	            <div class="card-content">
+	              <p>
+					<div class="meta">
+					<?php the_time(get_option('date_format')); //Muestra la fecha de publicación del artículo ?>
+					&bull;
+					<?php the_category(', '); //Muestra enlaces a las categorías separados por coma ?></div>
+	              
+	              <?php //En esta parte muestra el extracto del post
+							the_excerpt(); ?></p>
+	            </div>
+				<div class="card-action">
+	              <a href="#"><a href="<?php the_permalink(); //Imprime un link al detalle del post ?>" title="<?php the_title_attribute(); //Añade ul título al enlace ?>" class="btn btn-default"><?php _e('Ver más', 'amk'); //El botón dirá Ver más. ?></a></a>
+	            </div>
+
+	
  
-	<article <?php post_class('clearfix'); //Carga las clases específicas del post y agrega la clase clearfix ?>>
+			</article>
+		</div>
+	</div>		
  
-		<header>
-			<h2><?php the_title(); //Muestra el título del post ?></h2>
-			<div class="meta">
-				<?php the_time(get_option('date_format')); //Muestra la fecha de publicación del artículo ?>
-				&bull;
-				<?php the_category(', '); //Muestra enlaces a las categorías separados por coma ?></div>
-		</header>
- 
-		<?php //Verifica si el post tiene una imágen destacada
-		if ( has_post_thumbnail() ) {
- 
-			//Si tiene imágen destacada entonces carga la imagen en tamaño thumbnail (miniatura), y le añade la clase alignleft
-			the_post_thumbnail('thumbnail', array(
-				'class' => 'alignleft'
-			));
-		}?>
- 
-		<?php //En esta parte muestra el extracto del post
-		the_excerpt(); ?>
- 
-		<p>
-			<a href="<?php the_permalink(); //Imprime un link al detalle del post ?>" title="<?php the_title_attribute(); //Añade ul título al enlace ?>" class="btn btn-default"><?php _e('Ver más', 'amk'); //El botón dirá Ver más. ?></a></p>
- 
-	</article>
- 
-	<hr />
  
 <?php endwhile; //Acá termina la estructura con la que se presentará cada post
+
+
 else: //Ahora bien, si no hay artículos para mostrar entonces cargará lo siguiente  ?>
  
 	<article>

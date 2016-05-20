@@ -34,10 +34,29 @@
 								'theme_location'  => 'menu-principal',
 								'container'       => 'ul',
 								'menu_class'=>'side-nav',
-								'container_id'=>'mobile-demo'
+								'menu_id'=>'mobile-demo'
 								/*'items_wrap'      => '<ul id="%1$s" class="%2$s nav nav-pills">%3$s</ul>'*/
 							)); ?> 					
 
 		    </div>
 		  </nav>
 		</header>
+
+<!-- 		  <nav>
+    <div class="nav-wrapper">
+      <a href="#!" class="brand-logo">Logo</a>
+      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="sass.html">Sass</a></li>
+        <li><a href="badges.html">Components</a></li>
+        <li><a href="collapsible.html">Javascript</a></li>
+        <li><a href="mobile.html">Mobile</a></li>
+      </ul>
+      <ul class="side-nav" id="mobile-demo">
+        <li><a href="sass.html">Sass</a></li>
+        <li><a href="badges.html">Components</a></li>
+        <li><a href="collapsible.html">Javascript</a></li>
+        <li><a href="mobile.html">Mobile</a></li>
+      </ul> 
+    </div>
+  </nav>  -->
